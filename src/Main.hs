@@ -144,8 +144,10 @@ getMainR = defaultLayout widgetMain
 widgetMain :: Widget
 widgetMain = do
                 setTitle "Lolzin"
-                toWidgetHead [shamlet|<link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
-                                      <link rel="icon" type="image/png" href="favicon.png" sizes="16x16">|]
+                toWidgetHead [hamlet|<link rel="icon" type="image/png" href="/src/favicon.png" sizes="16x16">
+                                     <link rel="icon" type="image/png" href="/src/favicon.png" sizes="32x32">
+                                     <link rel="favicon" type="favicon" href="/src/favicon.ico">
+                                     <link rel="icon" type="icon" href="/src/favicon.ico">      |]
                 mu <- lookupSession "_ID"
                 case mu of
                     Nothing -> do
@@ -354,6 +356,7 @@ getListR = do
 |]
 
 
+        
 myCSS =
     [lucius|
         input {
